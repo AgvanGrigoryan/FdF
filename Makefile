@@ -1,22 +1,37 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aggrigor <aggrigor@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/03/14 18:14:57 by aggrigor          #+#    #+#              #
+#    Updated: 2024/03/23 11:26:44 by aggrigor         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 # Project name
 NAME = fdf
 
 # Compilator
 CC = cc
 # Compilator flags
-CFLAGS = -Wall -Wextra -Werror -I minilibx_macos #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I minilibx_macos -g3 -fsanitize=address
 LDFLAGS = -Lminilibx_macos -lmlx -framework OpenGL -framework AppKit
 
 # Headers
-HEADERS = includes/fdf.h
+HEADERS = inc/fdf.h inc/get_next_line.h
 
 # Source directory
-SRCS_DIR = utilities/
+SRCS_DIR = src/
 # Objects directory
-OBJS_DIR = objects/
+OBJS_DIR = objs/
 
 # Source file names
 SRCS_NAME = fdf.c \
+			sidebar.c \
+			hooks.c \
+			color_utils.c \
 			ft_putstr_fd.c \
 			ft_strcmp.c \
 			ft_strlen.c \
@@ -25,6 +40,12 @@ SRCS_NAME = fdf.c \
 			get_next_line_utils.c \
 			ft_split.c \
 			ft_atoi.c \
+			ft_itoa.c \
+			color_presets.c \
+			button_actions.c \
+			button_actions2.c \
+			rotate.c \
+			draw.c \
 			fdf_utils1.c
 
 # Objects file names
