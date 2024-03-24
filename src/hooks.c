@@ -6,7 +6,7 @@
 /*   By: aggrigor <aggrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:53:27 by aggrigor          #+#    #+#             */
-/*   Updated: 2024/03/22 21:18:52 by aggrigor         ###   ########.fr       */
+/*   Updated: 2024/03/23 15:37:28 by aggrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	destroy_window(t_vars *vars)
 {
 	my_mlx_image_clear(&vars->img, vars);
-	// mlx_destroy_image(vars->mlx_ptr, &vars->img.img); // MI BAN ENCHI
 	mlx_clear_window(vars->mlx_ptr, vars->win_ptr);
 	mlx_destroy_window(vars->mlx_ptr, vars->win_ptr);
 	exit(pfree_vars("Program closed\n", vars, 0));
@@ -44,7 +43,7 @@ int	key_hook(int keycode, t_vars *vars)
 	else if (keycode == PLUS_KEYCODE || keycode == NUMPAD_PLUS_KEYCODE)
 		zoom_in(vars);
 	else if (keycode == MINUS_KEYCODE || keycode == NUMPAD_MINUS_KEYCODE)
-		zoom_out(vars); // poxel qayl@ sarqel dinamik kaxvac map-i size-ic EV poxel skzbnakan filed_size-@ kaxvac mapi-sizeric
+		zoom_out(vars);
 	if (vars->right_click == true)
 		draw(vars);
 	return (0);

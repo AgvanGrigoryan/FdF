@@ -6,7 +6,7 @@
 /*   By: aggrigor <aggrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 18:13:23 by aggrigor          #+#    #+#             */
-/*   Updated: 2024/03/22 17:39:58 by aggrigor         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:59:36 by aggrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,23 +47,6 @@ int	ft_array_len(char **array)
 	while (array[i])
 		i++;
 	return (i);
-}
-
-int	*convert_line(t_vars *vars)
-{
-	int	*ret_arr;
-	int	i;
-
-	i = 0;
-	ret_arr = malloc(sizeof(int) * vars->x);
-	if (ret_arr == NULL)
-		return (NULL);
-	while (vars->row_splited[i])
-	{
-		ret_arr[i] = ft_atoi(vars->row_splited[i]);
-		i++;
-	}
-	return (ret_arr);
 }
 
 int	pfree(char *str, t_vars *vars, int return_value)

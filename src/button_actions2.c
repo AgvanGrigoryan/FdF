@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_map.c                                       :+:      :+:    :+:   */
+/*   button_actions2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aggrigor <aggrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 14:01:41 by aggrigor          #+#    #+#             */
-/*   Updated: 2024/03/22 21:17:44 by aggrigor         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:49:19 by aggrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,5 @@ void	left_view(void *void_vars)
 	vars->z_rotate = -8.60;
 	vars->x_rotate = -6.3;
 	vars->y_rotate = 0.60;
-	vars->top_view = false;
-}
-
-void	perspective_view(void *void_vars)
-{
-	t_vars	*vars;
-
-	vars = (t_vars *)void_vars;
-	reset_map(vars);
 	vars->top_view = false;
 }

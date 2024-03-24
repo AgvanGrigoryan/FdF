@@ -6,37 +6,11 @@
 /*   By: aggrigor <aggrigor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 19:40:12 by aggrigor          #+#    #+#             */
-/*   Updated: 2024/03/22 22:41:22 by aggrigor         ###   ########.fr       */
+/*   Updated: 2024/03/23 14:56:42 by aggrigor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
-
-void	draw_sidebar_background(t_vars *vars)
-{
-	t_color			trgb;
-	unsigned int	color;
-	int				y;
-	int				x;
-
-	y = 0;
-	while (y < vars->win_size.y)
-	{
-		x = 0;
-		while (x < vars->sidebar_width)
-		{
-			color = get_pixel_color(&vars->img, x, y);
-			uint_to_trgb(&trgb, color);
-			color = trgb_to_uint(&trgb, 0.25);
-			my_mlx_pixel_put(&vars->img, (t_point){x, y}, color);
-			x++;
-		}
-		y++;
-	}
-	draw_line((t_point){vars->sidebar_width + 1, 0},
-		(t_point){vars->sidebar_width + 1,
-		vars->win_size.y}, vars, WHITE);
-}
 
 void	add_color_buttons(t_vars *vars)
 {
@@ -75,27 +49,6 @@ void	add_buttons(t_vars *vars)
 	vars->buttons_cnt = 15;
 }
 
-void	draw_button_border(t_btn *button, t_vars *vars)
-{
-	int	pos_x;
-	int	pos_y;
-	int	size_x;
-	int	size_y;
-
-	pos_x = button->pos.x;
-	pos_y = button->pos.y;
-	size_x = button->size.x;
-	size_y = button->size.y;
-	draw_line((t_point){pos_x, pos_y},
-		(t_point){pos_x + size_x, pos_y}, vars, ORANGE);
-	draw_line((t_point){pos_x, pos_y},
-		(t_point){pos_x, pos_y + size_y}, vars, ORANGE);
-	draw_line((t_point){pos_x + size_x, pos_y},
-		(t_point){pos_x + size_x, pos_y + size_y}, vars, ORANGE);
-	draw_line((t_point){pos_x, pos_y + size_y},
-		(t_point){pos_x + size_x, pos_y + size_y}, vars, ORANGE);
-}
-
 void	draw_buttons(t_vars *vars)
 {
 	int	i;
@@ -104,23 +57,6 @@ void	draw_buttons(t_vars *vars)
 	while (i < vars->buttons_cnt)
 	{
 		draw_button_border(&vars->buttons[i], vars);
-		i++;
-	}
-}
-
-void	show_buttons_text(t_vars *vars)
-{
-	int	i;
-	int	pos_x;
-	int	pos_y;
-
-	i = 0;
-	while (i < vars->buttons_cnt)
-	{
-		pos_x = vars->buttons[i].pos.x + 10;
-		pos_y = vars->buttons[i].pos.y + 5;
-		mlx_string_put(vars->mlx_ptr, vars->win_ptr, pos_x + 1, pos_y,
-			WHITE, vars->buttons[i].content);
 		i++;
 	}
 }
